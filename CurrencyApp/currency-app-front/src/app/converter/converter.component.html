@@ -1,0 +1,68 @@
+<html>
+  <body>
+  <header>
+    <nav>
+      <div class="nav-left">
+        <img src="../../assets/LogoCC.png">
+        <p *ngIf="text">{{text}}</p>
+      </div>
+      <button (click)="onLogout()">Logout</button>
+    </nav>
+  </header>
+    <div class="blue-background"></div>
+    <div class="white-background"></div>
+    <div class="center-box">
+      <div class="container">
+        <h1>How much is it?</h1>
+        <form #formGroup="ngForm" (ngSubmit)="onSubmit(formGroup)">
+          <div class="fields">
+            <div class="field">
+              <label>Amount</label>
+              <input type="number" name="valueIn" [(ngModel)]="amount">
+            </div>
+            <div class="field">
+              <label>From</label>
+              <select class="select" name="isoFrom" [(ngModel)]="from_currency">
+                <option *ngFor="let currency of options$ | async" [value]="currency.iso">{{currency.name}}</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>To</label>
+              <select class="select" name="isoTo" [(ngModel)]="to_currency">
+                <option *ngFor="let currency of options$ | async" [value]="currency.iso">{{currency.name}}</option>
+              </select>
+            </div>
+          </div>
+          <div class="button">
+            <button>Convert</button>
+          </div>
+        </form>
+        <div class="answer">
+          <input *ngIf="result!=undefined" disabled [value]="result + ' '+ to_currency">
+        </div>
+      </div>
+    </div>
+    <h2 *ngIf="(history$ | async)?.length">History</h2>
+    <div class="histories">
+      <div *ngFor="let hist of (history$ | async)?.reverse()" class="history">
+        <div class="fields">
+          <div class="field">
+            <label>Amount</label>
+            <input disabled [value]="hist.valueIn">
+          </div>
+          <div class="field">
+            <label>From</label>
+            <input disabled [value]="hist.isoFrom">
+          </div>
+          <div class="field">
+            <label>To</label>
+            <input disabled [value]="hist.isoTo">
+          </div>
+          <div class="field answer">
+            <input disabled [value]="hist.valueOut.toFixed(3) + ' '+ hist.isoTo">
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

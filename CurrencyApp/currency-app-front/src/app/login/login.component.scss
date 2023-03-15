@@ -1,0 +1,87 @@
+body {
+  background: #ffffff;
+}
+
+h1{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  color: #0c0814;
+  font-weight: bold;
+  font-size: 60px;
+}
+
+h1 img{
+  opacity: 0.1;
+  filter: grayscale(1);
+}
+
+h1 p {
+  float: left;
+  margin: 10px;
+  font-family: Montserrat, sans-serif;
+  font-size: 65px;
+  font-weight: bold;
+  padding: 10px 0 10px 0;
+}
+
+.box {
+  background: #F0F0F0;
+  width: 700px;
+  margin: 45px auto 100px auto;
+  padding: 20px 45px 45px 45px;
+  text-align: center;
+  box-shadow: 0 0 40px 0 rgba(0, 0, 0, 0.30), 0 5px 5px 0 rgba(0, 0, 0, 0.30);
+}
+.box input {
+  font-family: 'Montserrat', sans-serif;
+  background: #E2E2E2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px 0;
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+
+.box button{
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  background: #004aad;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+
+.register-form{
+  margin-top: 30px;
+}
+
+.box button:hover,.box button:active,.box button:focus {
+  background: #0C0814;
+}
+
+
+.box .message {
+  margin: 15px 0 0;
+  color: #0C0814;
+  font-size: 15px;
+}
+.box .message a {
+  color: #004aad;
+  text-decoration: none;
+}
+
+.box .message a:hover {
+  color: #AAAAAA;
+}
+
+
+

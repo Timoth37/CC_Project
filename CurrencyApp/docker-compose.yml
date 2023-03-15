@@ -1,0 +1,42 @@
+version: '3'
+
+services:
+  frontend-container:
+    build: ./currency-app-front
+    networks:
+      - frontend-network
+      - nginx-network
+    depends_on:
+      - backend-container
+    ports:
+      - "80:80"
+
+  backend-container:
+    image: backend-image
+    networks:
+      - backend-network
+      - nginx-network
+    volumes:
+      - C:/Users/galla/Desktop/A4/file.txt:/app/file.txt
+    depends_on:
+      - projectDB
+
+  projectDB:
+    image: mongo
+    networks:
+      - backend-network
+    volumes:
+      - project-volume:/data/db
+
+volumes:
+  project-volume:
+    external: true
+
+networks:
+  frontend-network:
+    external: true
+  backend-network:
+    external: true
+  nginx-network:
+    external: true
+

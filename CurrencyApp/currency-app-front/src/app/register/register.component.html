@@ -1,0 +1,15 @@
+<body>
+<div class="box">
+  <h1>
+    <div class="title-composition">
+      <p>Register</p>
+    </div>
+  </h1>
+  <form class="register-form" #registerForm="ngForm" (ngSubmit)="onSubmitForm(registerForm)">
+    <input name="username" placeholder="username" [(ngModel)]="username"/>
+    <input type="password" name="password" placeholder="password" [(ngModel)]="password"/>
+    <button type="submit">Register</button>
+  </form>
+  <p class="message">Already registered ? <a [routerLink]="'/login'" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Login</a></p>
+</div>
+</body>
